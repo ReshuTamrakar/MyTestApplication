@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+using DevExpress.Web.Mvc;
+using MyTestApplication.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +19,8 @@ namespace MyTestApplication
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            DevExtremeBundleConfig.RegisterBundles(BundleTable.Bundles);
+            ModelBinders.Binders.DefaultBinder = new DevExpressEditorsBinder();
         }
     }
 }

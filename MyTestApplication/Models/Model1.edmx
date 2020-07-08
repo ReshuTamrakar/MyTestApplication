@@ -20,6 +20,20 @@
           <Property Name="ItemName" Type="varchar" MaxLength="255" />
           <Property Name="IsAvailable" Type="bit" />
         </EntityType>
+        <EntityType Name="tbl_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="SaleAmount" Type="int" />
+          <Property Name="Terms" Type="nvarchar(max)" />
+          <Property Name="TotalAmount" Type="int" />
+          <Property Name="CustomerStoreStat" Type="nvarchar(max)" />
+          <Property Name="CustomerStoreCity" Type="nvarchar(max)" />
+          <Property Name="Employee" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="tbl_state">
           <Key>
             <PropertyRef Name="StateId" />
@@ -31,6 +45,7 @@
         <EntityContainer Name="MyTestApplicationDBModelStoreContainer">
           <EntitySet Name="tbl_country" EntityType="Self.tbl_country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_myShop" EntityType="Self.tbl_myShop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Order" EntityType="Self.tbl_Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_state" EntityType="Self.tbl_state" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -56,6 +71,7 @@
           <EntitySet Name="tbl_country" EntityType="Self.tbl_country" />
           <EntitySet Name="tbl_state" EntityType="Self.tbl_state" />
           <EntitySet Name="tbl_myShop" EntityType="MyTestApplicationDBModel.tbl_myShop" />
+          <EntitySet Name="tbl_Order" EntityType="MyTestApplicationDBModel.tbl_Order" />
         </EntityContainer>
         <EntityType Name="tbl_myShop">
           <Key>
@@ -64,6 +80,20 @@
           <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ItemName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="IsAvailable" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="SaleAmount" Type="Int32" />
+          <Property Name="Terms" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalAmount" Type="Int32" />
+          <Property Name="CustomerStoreStat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerStoreCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Employee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -94,6 +124,21 @@
                 <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
                 <ScalarProperty Name="ItemName" ColumnName="ItemName" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Order">
+            <EntityTypeMapping TypeName="MyTestApplicationDBModel.tbl_Order">
+              <MappingFragment StoreEntitySet="tbl_Order">
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="CustomerStoreCity" ColumnName="CustomerStoreCity" />
+                <ScalarProperty Name="CustomerStoreStat" ColumnName="CustomerStoreStat" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Terms" ColumnName="Terms" />
+                <ScalarProperty Name="SaleAmount" ColumnName="SaleAmount" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

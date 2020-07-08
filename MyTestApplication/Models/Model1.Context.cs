@@ -28,5 +28,6 @@ namespace MyTestApplication.Models
         public DbSet<tbl_country> tbl_country { get; set; }
         public DbSet<tbl_state> tbl_state { get; set; }
         public DbSet<tbl_myShop> tbl_myShop { get; set; }
+        public DbSet<tbl_Order> tbl_Order { get; set; }
     }
 }
